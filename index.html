@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="color-scheme" content="light dark" />
+  <title>Checklista Matrix</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="app" aria-labelledby="title">
+    <header class="header">
+      <div>
+        <p class="eyebrow">Matrix widget</p>
+        <h1 id="title">Checklista</h1>
+      </div>
+      <div class="counter" id="counter" aria-live="polite">0 / 0</div>
+    </header>
+
+    <form id="add-form" class="add-form">
+      <label class="sr-only" for="new-task">Nowe zadanie</label>
+      <input
+        id="new-task"
+        name="task"
+        type="text"
+        autocomplete="off"
+        maxlength="160"
+        placeholder="Dodaj zadanie…"
+        required
+      />
+      <button type="submit" class="primary">+ Dodaj</button>
+    </form>
+
+    <section aria-label="Lista zadań">
+      <ul id="task-list" class="task-list"></ul>
+      <p id="empty-state" class="empty-state" hidden>
+        Lista jest pusta. Dodaj pierwsze zadanie.
+      </p>
+    </section>
+
+    <footer class="footer">
+      <span id="storage-info">Stan zapisuje się lokalnie w tej przeglądarce.</span>
+      <button id="clear-completed" type="button" class="link-button">
+        Usuń wykonane
+      </button>
+    </footer>
+  </main>
+
+  <template id="task-template">
+    <li class="task">
+      <label class="task-main">
+        <input class="task-checkbox" type="checkbox" />
+        <span class="task-text"></span>
+      </label>
+      <button class="delete-button" type="button" aria-label="Usuń zadanie">×</button>
+    </li>
+  </template>
+
+  <script src="app.js"></script>
+</body>
+</html>
